@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Radar — pre-token protocols ranked by implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<a class="skip" href="#board">Skip to the board</a>
+<header class="top">
+  <div class="brand">
+    <span class="pulse" aria-hidden="true"></span>
+    <div>
+      <h1>TOKEN RADAR</h1>
+      <p class="tag">Every protocol that could still launch a token, ranked by what that token would be worth.</p>
+    </div>
+  </div>
+  <div class="meta" id="meta"></div>
+</header>
+<main id="board" tabindex="-1" aria-busy="true">
+  <section class="stats" id="stats" aria-label="Coverage"></section>
+  <section class="model" id="model" aria-label="How the radar scores"></section>
+  <section class="controls" aria-label="Filter the board">
+    <label>Search <input id="q" type="search" placeholder="Protocol name or slug…" autocomplete="off"></label>
+    <label>Category <select id="category"></select></label>
+    <label>Chain <select id="chain"></select></label>
+    <label>Scope <select id="scope">
+      <option value="all">All ranked</option>
+      <option value="watchlist">Watchlist only</option>
+      <option value="early">Early finds only</option>
+    </select></label>
+    <label>Sort by <select id="sort">
+      <option value="implied">Implied value</option>
+      <option value="tvl">TVL</option>
+      <option value="growth">7-day change</option>
+      <option value="age">Age</option>
+    </select></label>
+  </section>
+  <p class="count" id="count" role="status"></p>
+  <div class="wrap">
+    <table class="board" id="table">
+      <thead><tr>
+        <th data-sort="rank">#</th>
+        <th data-sort="name">Protocol</th>
+        <th data-sort="category">Category</th>
+        <th>Chains</th>
+        <th data-sort="tvl">TVL</th>
+        <th data-sort="growth">7d</th>
+        <th data-sort="age">Age</th>
+        <th data-sort="implied">Implied value</th>
+      </tr></thead>
+      <tbody id="rows"></tbody>
+    </table>
+    <aside class="detail" id="detail" aria-label="Protocol detail" hidden></aside>
+  </div>
+  <section class="live" id="live" aria-label="Already trading"></section>
+  <footer class="foot">
+    <p>Implied value is this radar's own claim from the snapshot's figures — TVL, seven-day growth, age with no token, and the market's own price of each category. It is not a prediction that a token is issued, or when. Source: <span id="source"></span></p>
+  </footer>
+</main>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
